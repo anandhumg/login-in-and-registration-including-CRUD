@@ -1,0 +1,56 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+  </ol>
+</nav>
+
+{{#if alert}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{alert}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{{/if}}
+
+{{#each rows}}
+<form class="row g-3 needs-validation" method="POST" action="/edituser/{{this.id}}" novalidate> 
+  {{!-- {{> user-form}} --}}
+
+
+ <div class="col-6">
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" value="{{this.user_name}}" placeholder=" Name" name="user_name">
+      <label for="floatingInput"> Name</label>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input readonly type="email" class="form-control" id="floatingInput" value="{{this.email_id}}" placeholder="email@email.com" name="email_id">
+      <label for="floatingInput">Email</label>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="floatingInput" value="{{this.password}}" placeholder="Phone" name="password">
+      <label for="floatingInput">Password</label>
+    </div>
+  </div>
+    <div class="col-6">
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="floatingInput" value="{{this.confirm_password}}" placeholder="Phone" name="confirm_password">
+      <label for="floatingInput">Confirm Password</label>
+    </div>
+  </div>
+ 
+  <div class="col-12 d-grid">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+
+
+
+
+
+
+</form>
+{{/each}}

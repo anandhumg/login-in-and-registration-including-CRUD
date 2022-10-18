@@ -1,0 +1,78 @@
+{{#if removedUser}}
+<form action="/">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  User has been removed.
+  <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="/"></button>
+</div>
+</form>
+{{/if}}
+
+<div class="row">
+  <div class="col-6">
+    <h1>Users</h1>
+  </div>
+  <div class="col-6 d-flex justify-content-end">
+    <a href="/adduser" type="button" class="btn btn-primary align-self-center">+ add user</a>
+  </div>
+</div>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">user Name</th>
+
+      <th scope="col">Email</th>
+
+      <th scope="col" class="text-end">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {{#each rows}}
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.user_name}}</td>
+
+      <td>{{this.email_id}}</td>
+
+      <td >
+        <a href="/viewuser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i> View</a>
+        <a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>
+          Edit</a>
+      <!-- Button trigger modal -->
+      <form  class=" text-end" action="/{{this.id}}" >
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-person-x"></i>
+  Delete
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CONFIRM</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button  type="submit"  class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+        {{!-- <a href="/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i>
+          Delete</a> --}}
+
+      </td>
+    </tr>
+{{/each}}
+  </tbody>
+</table>

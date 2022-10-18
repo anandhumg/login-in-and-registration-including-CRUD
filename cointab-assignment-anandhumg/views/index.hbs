@@ -1,0 +1,46 @@
+  <h1 style="padding: 30px;">LOGIN PAGE</h1>
+
+<div class="container">
+<form method="post" >
+  <div class="col-12">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email_id">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  </div>
+  <div class="col-12">
+  <div class="form-group mb-3">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+
+  </div>
+  </div>
+          {{#if message}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{message}}
+  <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+    
+  </button>
+</div>
+{{/if}}
+
+          {{#if failede}}
+          <form action="/index"></form>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{failede}}
+  <button type="submit" class="btn-close" data-dismiss="alert" aria-label="Close">
+    
+  </button>
+</div>
+</form>
+{{/if}}
+
+
+<div class="col-12 d-grid">
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+</form>
+</div>
